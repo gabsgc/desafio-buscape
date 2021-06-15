@@ -1,4 +1,6 @@
 from application.model.entity.product import Product
+import json
+from typing import List
 
 class ProductDAO:
     def __init__(self):
@@ -9,5 +11,32 @@ class ProductDAO:
 
         self._products = [product1, product2, product3, product4]
 
+        self._cart_list = []
+
     def findAll(self):
         return self._products
+
+    def addCart(self):
+        return self._cart_list
+
+    """
+    def findAll(self):
+        product_list = []
+        with open('data.json', 'r') as file:
+            product_list_json = json.load(file)
+            product_list = self.dictToList(product_list_json)
+        return product_list
+
+    def dictToList(self, product_list):
+        product_list = []
+        for product_dict in product_list:
+            product = Product()
+            product._id(product_dict['id'])
+            product._name(product_dict['name'])
+            product._images(product_dict['images'])
+            product._value(product_dict['value'])
+            product._installments(product_dict['installments'])
+            product._installment_value(product_dict['installment_value'])
+            product_list.append(product)
+        return product_list
+    """

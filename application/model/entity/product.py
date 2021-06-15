@@ -1,7 +1,7 @@
 class Product:
-    def __init__(self, id: int, title: str, images: str, value: int, installments: int, installment_value: int):
+    def __init__(self, id: int, name: str, images: str, value: int, installments: int, installment_value: int):
         self._id = id
-        self._title = title
+        self._name = name
         self._images = images
         self._value = value
         self._installments = installments
@@ -16,12 +16,12 @@ class Product:
         self._id = value
     
     @property
-    def title(self):
-        return self._title
+    def name(self):
+        return self._name
     
-    @title.setter
-    def title(self, value):
-        self._title = value
+    @name.setter
+    def name(self, value):
+        self._name = value
     
     @property
     def images(self):
@@ -55,3 +55,12 @@ class Product:
     def installmentsValue(self, value):
         self._installment_value = value
     
+    def toDict(self):
+        return {
+            'id': self._id,
+            'name': self._name,
+            'images': self._images,
+            'value': self._value,
+            'installments': self._installments,
+            'installment_value': self._installment_value
+        }
